@@ -14,27 +14,31 @@ const cats = [
     },
 ];
 
+const FrameForImage = (props) => {
+    return (
+        <div className="frame">
+            <h1 className="frame__header">
+                { props.header }
+            </h1>
+
+            <div className="frame__content">
+                <img src={ props.image }/>
+            </div>
+        </div>
+    );
+};
+
 const appContent = (
     <div className="app">
-        <div className="frame">
-            <h1 className="frame__header">
-                { cats[0].headerText }
-            </h1>
+        <FrameForImage
+            header={ cats[0].headerText }
+            image={ cats[0].imageUrl }
+        />
 
-            <div className="frame__content">
-                <img src={ cats[0].imageUrl }/>
-            </div>
-        </div>
-
-        <div className="frame">
-            <h1 className="frame__header">
-                { cats[1].headerText }
-            </h1>
-
-            <div className="frame__content">
-                <img src={ cats[1].imageUrl } />
-            </div>
-        </div>
+        <FrameForImage
+            header={ cats[1].headerText }
+            image={ cats[1].imageUrl }
+        />
     </div>
 );
 
