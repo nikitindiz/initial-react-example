@@ -1,4 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-ReactDOM.render('Hello World!', document.getElementById('react-app'));
+const appContent = 'Hello World!';
+const rootElement = document.getElementById('react-app');
+
+ReactDOM.render(appContent, rootElement);
