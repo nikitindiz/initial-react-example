@@ -7,6 +7,10 @@ const cats = [
         headerText: 'This cat\'s name is Tom',
         imageUrl: 'https://static.scientificamerican.com/sciam/cache/file/92E141F8-36E4-4331-BB2EE42AC8674DD3_source.jpg?w=590&h=800&92807D47-9808-491E-A6A70445BEF5521E',
     },
+    {
+        headerText: 'New cat added',
+        imageUrl: 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/feeding_cat_a_treat_other/1800x1200_feeding_cat_a_treat_other.jpg?resize=600px:*',
+    },
 ];
 
 export default cats;

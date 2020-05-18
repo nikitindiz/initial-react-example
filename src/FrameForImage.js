@@ -12,6 +12,12 @@ const FrameForImage = (props) => {
             <div className="frame__content">
                 <img src={ props.image }/>
             </div>
+
+            {props.children && (
+                <div className="frame__children">
+                    { props.children }
+                </div>
+            )}
         </div>
     );
 };
