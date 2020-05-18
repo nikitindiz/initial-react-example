@@ -10,6 +10,7 @@ class App extends React.Component {
                 <FrameForImage
                     header={ cats[0].headerText }
                     image={ cats[0].imageUrl }
+                    skipHeader={true}
                 />
         
                 <FrameForImage
