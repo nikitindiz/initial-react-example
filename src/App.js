@@ -3,28 +3,63 @@ import React from 'react';
 import cats from './cats';
 import FrameForImage from './FrameForImage';
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className="app">
+import './App.css';
+
+const App = () => (
+    <div className="app">
+        <div className="left-sidebar left-sidebar--visible">
+            <div className="left-sidebar__toolbar">
+                Navigation
+            </div>
+
+            <a
+                href="/"
+                className="sidebar-navigation-item sidebar-navigation-item--active"
+            >
+                Cats gallery
+            </a>
+
+            <a
+                href="/?page=traffic-lights"
+                className="sidebar-navigation-item"
+            >
+                Traffic lights
+            </a>
+        </div>
+
+        <div className="main-section main-section--with-left-sidebar">
+            <div className="main-section__toolbar">
+                Cats gallery
+            </div>
+
+            <div className="main-section__content">
+                <h1>
+                    Some cat pictures here :-)
+                </h1>
+
                 <FrameForImage
-                    header={ cats[0].headerText }
-                    image={ cats[0].imageUrl }
-                    skipHeader={true}
-                />
-        
-                <FrameForImage
-                    header={ cats[1].headerText }
-                    image={ cats[1].imageUrl }
+                    header={cats[0].headerText}
+                    image={cats[0].imageUrl}
                 >
-                    <h3>Some header</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus pariatur architecto similique, laudantium itaque dolore maiores et quaerat, cupiditate perspiciatis a, magnam commodi sunt quasi odio excepturi animi necessitatibus aliquid.
-                    </p>
+                    {cats[0].description}
+                </FrameForImage>
+
+                <FrameForImage
+                    header={cats[1].headerText}
+                    image={cats[1].imageUrl}
+                >
+                    {cats[1].description}
+                </FrameForImage>
+
+                <FrameForImage
+                    header={cats[2].headerText}
+                    image={cats[2].imageUrl}
+                >
+                    {cats[2].description}
                 </FrameForImage>
             </div>
-        );
-    }
-}
+        </div>
+    </div>
+);
 
 export default App;
