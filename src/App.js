@@ -3,7 +3,8 @@ import React from 'react';
 import Navigation from './components/Navigation';
 import FrameForImagePage from './pages/FrameForImagePage';
 import TrafficLightsPage from './pages/TrafficLightsPage'
-import TrafficLightsCtrlBtnPage from './pages/TrafficLightsCtrlBtnPage'
+import TrafficLightsCtrlBtnPage from './pages/TrafficLightsAutoPage'
+import TrafficLightsAutoPage from './pages/TrafficLightsAutoPage'
 
 import './App.css';
 
@@ -23,6 +24,8 @@ const App = () => (
             {window.location.search === '?page=traffic-lights' && <TrafficLightsPage />}
 
             {window.location.search === '?page=traffic-lights-controlled-btns' && <TrafficLightsCtrlBtnPage />}
+
+            {window.location.search === '?page=traffic-lights-controlled-auto' && <TrafficLightsAutoPage />}
         </div>
     </div>
 );

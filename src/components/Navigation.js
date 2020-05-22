@@ -35,6 +35,16 @@ const Navigation = () => (
         >
             Traffic lights Controlled with buttons
         </a>
+
+        <a
+            href="/?page=traffic-lights-controlled-auto"
+            className={
+                'sidebar-navigation-item ' +
+                (window.location.search === '?page=traffic-lights-controlled-auto' && 'sidebar-navigation-item--active')
+            }
+        >
+            Traffic lights Controlled automatically
+        </a>
     </div>
 );
 
