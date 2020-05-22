@@ -45,6 +45,18 @@ const Navigation = () => (
         >
             Traffic lights Controlled automatically
         </a>
+
+
+
+        <a
+            href="/?page=inputs"
+            className={
+                'sidebar-navigation-item ' +
+                (window.location.search === '?page=inputs' && 'sidebar-navigation-item--active')
+            }
+        >
+            Inputs
+        </a>
     </div>
 );
 
