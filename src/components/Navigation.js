@@ -57,6 +57,17 @@ const Navigation = () => (
         >
             Inputs
         </a>
+
+
+        <a
+            href="/?page=address-book"
+            className={
+                'sidebar-navigation-item ' +
+                (window.location.search === '?page=address-book' && 'sidebar-navigation-item--active')
+            }
+        >
+            Address book
+        </a>
     </div>
 );
 

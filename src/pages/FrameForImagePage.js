@@ -10,6 +10,12 @@ const FrameForImagePage = () => (
         </h1>
 
         <FrameForImage
+            image={cats[0].imageUrl}
+        >
+            {cats[0].description}
+        </FrameForImage>
+
+        <FrameForImage
             header={cats[0].headerText}
             image={cats[0].imageUrl}
         >

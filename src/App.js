@@ -6,6 +6,7 @@ import TrafficLightsPage from './pages/TrafficLightsPage'
 import TrafficLightsCtrlBtnPage from './pages/TrafficLightsAutoPage'
 import TrafficLightsAutoPage from './pages/TrafficLightsAutoPage'
 import InputsPage from './pages/InputsPage'
+import AddressBookPage from './pages/AddressBookPage'
 
 import './App.css';
 
@@ -29,6 +30,8 @@ const App = () => (
             {window.location.search === '?page=traffic-lights-controlled-auto' && <TrafficLightsAutoPage />}
 
             {window.location.search === '?page=inputs' && <InputsPage />}
+
+            {window.location.search === '?page=address-book' && <AddressBookPage />}
         </div>
     </div>
 );
