@@ -33,17 +33,10 @@ class AddressBook extends React.Component {
     render() {
         const { users, selectedIndex } = this.state;
 
-        const {
-            firstName,
-            lastName,
-            company,
-            phone
-        } = this.state.users[selectedIndex];
-
         return (
             <div>
                 <div style={{ margin: 10 }}>
-                    { users.map(({ firstName, lastName, phone }, index) => {
+                    { users.map(({ firstName, lastName, phone, company }, index) => {
                         if (index === selectedIndex) {
                             return (
                                 <div
