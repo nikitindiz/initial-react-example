@@ -25,68 +25,90 @@ class AddressBook extends React.Component {
                   phone: "+1 (812) 496-2735",
                 }
             ],
+
+            selectedIndex: 0,
         };
     }
 
     render() {
-        const { users } = this.state;
+        const { users, selectedIndex } = this.state;
 
         const {
             firstName,
             lastName,
             company,
             phone
-        } = this.state.users[0];
+        } = this.state.users[selectedIndex];
 
         return (
             <div>
                 <div style={{ margin: 10 }}>
-                    <div>
-                        <input type="text" placeholder="First name" value={firstName} onChange={(event) => {
-                            const updatedArray = users;
-                            updatedArray[0].firstName = event.target.value;
+                    { users.map(({ firstName, lastName, phone }, index) => {
+                        if (index === selectedIndex) {
+                            return (
+                                <div
+                                    style={{
+                                        padding: 5,
+                                        border: `1px solid red`,
+                                        marginBottom: 4
+                                    }}
+                                >
+                                    <div>
+                                        <input type="text" placeholder="First name" value={firstName} onChange={(event) => {
+                                            const updatedArray = users.slice();
+                                            updatedArray[selectedIndex].firstName = event.target.value;
 
-                            this.setState({
-                                users: updatedArray,
-                            })
-                        }}/>
-                    </div>
-                    <div>
-                        <input type="text" placeholder="Last name" value={lastName} onChange={(event) => {
-                            const updatedArray = users;
-                            updatedArray[0].lastName = event.target.value;
+                                            this.setState({
+                                                users: updatedArray,
+                                            })
+                                        }}/>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Last name" value={lastName} onChange={(event) => {
+                                            const updatedArray = users.slice();
+                                            updatedArray[selectedIndex].lastName = event.target.value;
 
-                            this.setState({
-                                users: updatedArray,
-                            })
-                        }}/>
-                    </div>
-                    <div>
-                        <input type="text" placeholder="Company" value={company} onChange={(event) => {
-                            const updatedArray = users;
-                            updatedArray[0].company = event.target.value;
+                                            this.setState({
+                                                users: updatedArray,
+                                            })
+                                        }}/>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Company" value={company} onChange={(event) => {
+                                            const updatedArray = users.slice();
+                                            updatedArray[selectedIndex].company = event.target.value;
 
-                            this.setState({
-                                users: updatedArray,
-                            })
-                        }}/>
-                    </div>
-                    <div>
-                        <input type="text" placeholder="Phone number" value={phone} onChange={(event) => {
-                            const updatedArray = users;
-                            updatedArray[0].phone = event.target.value;
+                                            this.setState({
+                                                users: updatedArray,
+                                            })
+                                        }}/>
+                                    </div>
+                                    <div>
+                                        <input type="text" placeholder="Phone number" value={phone} onChange={(event) => {
+                                            const updatedArray = users.slice();
+                                            updatedArray[selectedIndex].phone = event.target.value;
 
-                            this.setState({
-                                users: updatedArray,
-                            })
-                        }}/>
-                    </div>
-                </div>
+                                            this.setState({
+                                                users: updatedArray,
+                                            })
+                                        }}/>
+                                    </div>
+                                </div>
+                            )
+                        }
 
-                <div style={{ margin: 10 }}>
-                    { users.map(({ firstName, lastName, phone }) => {
                         return (
-                            <div style={{ padding: 5, border: '1px solid black', marginBottom: 4}}>
+                            <div
+                                style={{
+                                    padding: 5,
+                                    border: `1px solid black`,
+                                    marginBottom: 4
+                                }}
+
+                                onClick={() => this.setState({
+                                    selectedIndex: index,
+                                })}
+                            >
                                 <span style={ { marginLeft: 5 } }>
                                     { firstName }
                                 </span>
@@ -99,6 +121,30 @@ class AddressBook extends React.Component {
                             </div>
                         );
                     }) }
+
+                    <div
+                        style={{
+                            padding: 5,
+                            color: 'white',
+                            backgroundColor: 'red',
+                            marginBottom: 4,
+                            textAlign: 'center',
+                        }}
+
+                        onClick={() => {
+                            const newArray = this.state.users.slice();
+                            newArray.push({});
+
+                            const newSelectedIndex = newArray.length - 1;
+
+                            this.setState({
+                                users: newArray,
+                                selectedIndex: newSelectedIndex,
+                            });
+                        }}
+                    >
+                        +
+                    </div>
                 </div>
             </div>
         );
