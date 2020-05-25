@@ -3,7 +3,7 @@ import React from 'react';
 class AddressBookList extends React.Component {
     render() {
         const {
-            users = [
+            users = [ // set default value if users === undefined
                 {
                   firstName: "Hawkins",
                   lastName: "Solomon",
@@ -27,17 +27,17 @@ class AddressBookList extends React.Component {
 
         return (
             <div>
-                { users.map((user) => {
+                { users.map(({ firstName, lastName, phone }) => {
                     return (
                         <div>
                             <span style={ { marginLeft: 5 } }>
-                                { user.firstName }
+                                { firstName }
                             </span>
                             <span style={ { marginLeft: 5 } }>
-                                { user.lastName }
+                                { lastName }
                             </span>
                             <span style={ { marginLeft: 5 } }>
-                                { user.phone }
+                                { phone }
                             </span>
                         </div>
                     );
